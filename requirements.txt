@@ -9,3 +9,4 @@ configobj==5.0.6
 python-dateutil
 requests == 2.18.1
 mock == 2.0.0
+python == 3.5.3
