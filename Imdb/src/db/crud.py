@@ -7,8 +7,6 @@ class CRUDBase(object):
 
     def save(self, db_session, model_object):
         db_session.add(model_object)
-        # Flushing is done on commit, we need flush prior to commit to ensure that auto generated primary key values
-        # get copied to the model.
         db_session.flush()
         return model_object
 

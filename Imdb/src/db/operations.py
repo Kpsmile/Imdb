@@ -29,16 +29,6 @@ class OperationsBase(object):
             session.expunge(model)
             return model
 
-    def bulk_save(self, model_list):
-        with transactional_session() as session:
-            self.crud.bulk_save(session, model_list)
-
-    def fetch(self, model):
-        with transactional_session() as session:
-            models = self.crud.fetch_all(session, model)
-            session.expunge_all()
-            return models
-
 class UserRoleInfo(object):
     def __init__(self, role_id, role_type):
         self.role_id = role_id
