@@ -28,7 +28,7 @@ class EditMovieHandler(ImdbRequestHandler):
             self.set_status(status_code)
             self.write(message)
         except Exception as exception:
-            self.write('Error updating movie')
+            self.write('Error while updating movie')
             self.set_status(404)
         finally:
             self.finish()
@@ -48,5 +48,3 @@ class EditMovieHandler(ImdbRequestHandler):
             request_body_decode['imdb_score'],
             request_body_decode['movie_name'])
         return status_code, message
-
-

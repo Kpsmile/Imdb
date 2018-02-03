@@ -1,19 +1,14 @@
-import tornado.httpserver
-import tornado.ioloop
-import tornado.options
 import tornado.web
-from Imdb.src.handlers.imdb_request_handler import ImdbRequestHandler
-
-class MovieHandler(ImdbRequestHandler):
+class MovieHandler(tornado.web.RequestHandler):
     """
-    Class responsible for handling the Alerts API  call.
-    Gets the Alerts details for the device in json format.
+    Class responsible for handling the get movies API  call.
+    Gets the movies details  in json format.
     """
+    def __init__(self, application, request, **kwargs):
+        super(MovieHandler, self).__init__(application, request, **kwargs)
 
-    def initialize(self, movie_service, identity_service):
-        super(MovieHandler, self).initialize(identity_service)
+    def initialize(self, movie_service):
         self.movie_service = movie_service
-        self.identity_service = identity_service
 
     @tornado.web.asynchronous
     def get(self):
@@ -23,7 +18,6 @@ class MovieHandler(ImdbRequestHandler):
         The response of the API is  movie details in json format .
         """
         try:
-            # import pdb;pdb.set_trace()
             http_status, alert_data = self.movie_service.get_movies()
             self.set_status(http_status)
             self.write(alert_data)

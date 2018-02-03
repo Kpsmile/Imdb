@@ -18,7 +18,7 @@ class DeleteMovieHandler(ImdbRequestHandler):
     def delete(self):
         """
         API : http://<ip>:<port>/1.0/movie/delete
-        The delete http request handler for the API call. The API dleete the  movie.
+        The delete http request handler for the API call. The API delete the  movie.
         :return: the json response containing message.
         """
         try:
@@ -27,7 +27,7 @@ class DeleteMovieHandler(ImdbRequestHandler):
             self.set_status(status_code)
             self.write(message)
         except Exception as exception:
-            self.write('Error deleteing movie')
+            self.write('Error while deleteing movie')
             self.set_status(404)
         finally:
             self.finish()
@@ -43,4 +43,3 @@ class DeleteMovieHandler(ImdbRequestHandler):
         status_code, message = self.delete_movie_service.delete_movie(
             request_body_decode['movie_id'])
         return status_code, message
-

@@ -14,5 +14,3 @@ class EditMovieService(object):
 
         except Exception as exception:
             raise exception
-        except Exception as exception:
-            print(exception)

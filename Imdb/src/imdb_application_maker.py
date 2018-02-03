@@ -50,4 +50,4 @@ class ApplicationMaker(object):
                     dict(delete_movie_service=self.delete_movie_service, identity_service=self.identity_service))
         if api == 'movies':
             return (r"/1.0/movies", movie_handler.MovieHandler,
-                    dict(movie_service=self.movie_service, identity_service=self.identity_service))
+                    dict(movie_service=self.movie_service))
