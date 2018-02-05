@@ -3,6 +3,8 @@ Clone the project from git
 
 Give the Database credentials and port no in config.ini(location - Imdb/Imdb/config/config.ini).The default port no is 8020.
 
+set PYTHONPATH=%PYTHONPATH%;C:\My_python_lib                                                     
+
 pip install -r requirements.txt  in IDE terminal.
 Run manage.py
 
